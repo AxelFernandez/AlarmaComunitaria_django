@@ -81,15 +81,10 @@ WSGI_APPLICATION = 'alarma_comunitaria_site.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'delivery-lavalle',
-        'USER': 'name',
-        'PASSWORD': '',
-        'PORT': '',
-    }
+    'default': dj_database_url.config()
+
 }
-DB_FROM_ENV = dj_database_url.config(conn_max_age=500)
+DB_FROM_ENV = dj_database_url.config()
 DATABASES['default'].update(DB_FROM_ENV)
 
 
